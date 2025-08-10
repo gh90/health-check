@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  health_check_server:
+    build: .
+    container_name: health_check_server
+    command: uvicorn main:app --host 0.0.0.0 --port 20001
+    ports:
+      - "20001:20001"  # receive port
+    networks:
+      - health_server_net
+    environment:
+      - TZ=Asia/Seoul
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
