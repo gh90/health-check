@@ -1,9 +1,9 @@
 version: "3.9"
 
 services:
-  health_check_server:
+  health_check:
     build: .
-    container_name: health_check_server
+    container_name: health_check
     command: uvicorn main:app --host 0.0.0.0 --port 20001
     ports:
       - "20001:20001"  # receive port
